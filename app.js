@@ -5,7 +5,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const locationRoutes = require("./location/locationRoutes");
+
 const amenitiesRoutes = require("./amenities/amenities-routes");
+
+const buildingRoutes = require("./building/buildingRoutes");
+
 
 mongoose.connect(
   "mongodb+srv://admin:admin@conferenceroomproject-ysuzo.mongodb.net/test?retryWrites=true&w=majority",
@@ -33,6 +37,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/v1/location", locationRoutes);
+app.use("/v1/building", buildingRoutes);
 
 app.use("/v1/amenities", amenitiesRoutes);
 
